@@ -19,14 +19,18 @@ int main(int argc, char** argv) {
 	while((ch = getopt(argc, argv, "s:")) != -1) {
 		switch(ch)
 		{
-		   case 's':
-			  step = atoi(optarg);
-			  break;
+			//步长s必须小于1024
+			case 's':
+				step = atoi(optarg);
+				if (step > 1024) step = 1024;
+				break;
 		}
 	}
 
 	char* arr = new char[TESTN];
+	//使用clock比取系统时间能够更准确的看到消耗了多少CPU资源
 	clock_t start, end;
+	//用不同的步长，但只做total次运算，这样可以横向比较
 	long total = TESTN/1024,cnt = 0;
 	long i = 0;
 	start =clock();

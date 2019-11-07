@@ -1,6 +1,6 @@
 import time
 import sys, getopt
-
+import numpy as np
 
 try:
    opts, args = getopt.getopt(sys.argv,"fs")
@@ -15,14 +15,16 @@ for opt, arg in opts:
     elif opt in ("-s"):
         slowMode = True
 
-TESTN = 10240
-arr = [[0 for col in range(TESTN)] for row in range(TESTN)]
+TESTN = 1024*10
+arr = np.empty((TESTN, TESTN))
 t1 = time.time()
 if slowMode:
+    sum = np.sum(arr,axis=1)
     for i in range(TESTN):
         for j in range(TESTN):
             arr[j][i] = 1
 else:
+    sum = np.sum(arr,axis=0)
     for i in range(TESTN):
         for j in range(TESTN):
             arr[i][j] = 1
