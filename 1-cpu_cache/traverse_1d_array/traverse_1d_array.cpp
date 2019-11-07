@@ -7,6 +7,7 @@ using namespace std;
 
 long timediff(clock_t t1, clock_t t2) {
     long elapsed;
+	//使用clock统计与取系统时间不同，它表示从进程启动到当下所消耗的CPU计时单元数
     elapsed = ((double)t2 - t1) / CLOCKS_PER_SEC * 1000;
     return elapsed;
 }
