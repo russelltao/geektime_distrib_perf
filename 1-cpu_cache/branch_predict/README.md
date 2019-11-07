@@ -20,6 +20,7 @@
 #### 遍历有序数组
 `./branch_predict -f`
 消耗时间（毫秒）：350
+### c. 使用perf验证缓存命中率
 #### 遍历随机数组
 `perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./branch_predict -`
 ```
