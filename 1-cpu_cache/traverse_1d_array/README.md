@@ -31,7 +31,7 @@
             26,230      cache-misses              #    7.882 % of all cache refs      (67.17%)
        111,702,471      instructions              #    1.61  insn per cycle           (83.59%)
         69,498,357      cycles                                                        (83.57%)
-           ** 250,109      L1-dcache-load-misses     #    0.43% of all L1-dcache hits    (83.58%) **
+           250,109      L1-dcache-load-misses     #    0.43% of all L1-dcache hits    (83.58%)
         58,115,659      L1-dcache-loads                                               (82.72%)
 
        0.030938059 seconds time elapsed
@@ -71,51 +71,4 @@
 
        0.158064000 seconds user
        1.736704000 seconds sys
-```
-## 3. Java程序
-### a. 编译程序
-`javac traverse_1d_array.java`
-### b.运行验证
-#### 使用array[i][j]遍历数组
-`java traverse_1d_array -f`
-消耗时间（毫秒）：20
-#### 使用array[j][i]遍历数组
-`java traverse_1d_array -s`
-消耗时间（毫秒）：100
-### c. 使用perf验证缓存命中率
-#### 使用array[i][j]遍历数组
-`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./traverse_1d_array -f`
-* 输出结果：
-```
- Performance counter stats for 'java traverse_2d_array -f':
-
-         6,379,138      cache-references                                              (80.62%)
-           866,578      cache-misses              #   13.585 % of all cache refs      (68.93%)
-       459,726,039      instructions              #    1.51  insn per cycle           (85.22%)
-       303,673,757      cycles                                                        (85.69%)
-         5,270,707      L1-dcache-load-misses     #    3.96% of all L1-dcache hits    (81.64%)
-       133,211,743      L1-dcache-loads                                               (83.13%)
-
-       0.126089887 seconds time elapsed
-
-       0.122353000 seconds user
-       0.047877000 seconds sys
-```
-#### 使用array[j][i]遍历数组
-`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./traverse_1d_array -s`
-* 输出结果：
-```
- Performance counter stats for 'java traverse_2d_array -s':
-
-        42,441,956      cache-references                                              (80.21%)
-           872,336      cache-misses              #    2.055 % of all cache refs      (66.61%)
-       386,326,280      instructions              #    0.71  insn per cycle           (84.29%)
-       544,411,061      cycles                                                        (85.01%)
-        38,884,991      L1-dcache-load-misses     #   32.48% of all L1-dcache hits    (85.24%)
-       119,711,464      L1-dcache-loads                                               (82.94%)
-
-       0.192838747 seconds time elapsed
-
-       0.200693000 seconds user
-       0.052919000 seconds sys
 ```
