@@ -3,6 +3,8 @@
 autoconf、automake、libtool
 CentOS下安装：yum install autoconf automake libtool
 Ubuntu下安装：apt-get install autoconf、automake、libtool
+#### 下载gperftool
+https://github.com/gperftools/gperftools.git
 #### 生成configure文件
 ./autogen.sh
 #### 生成Makefile文件
