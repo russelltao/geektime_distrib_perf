@@ -1,11 +1,9 @@
 #include "stdio.h"
 #include <stdlib.h>
 #include <sys/time.h>
-#include <iostream>
 #include <unistd.h>
 #include <pthread.h>
 
-using namespace std;
 
 int TESTN = 128*1024*1024;
 int size = 64;
@@ -61,7 +59,7 @@ int main(int argc, char** argv) {
 			int ret=pthread_create(&id[i],NULL,loopalloc,&timecost[i]);
 			
 			if(ret!=0){ 
-				cout<<"Create pthread error!\n"; 
+				printf("Create pthread error!\n"); 
 				exit (1); 
 			} 
 		}
