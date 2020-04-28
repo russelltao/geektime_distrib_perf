@@ -31,10 +31,10 @@ int main() {
     getchar();
     free(addr);
     printf("释放了1字节的内存，但heap堆并不会释放\n");
-	printf("接下来分配8MB内存\n");
+	printf("接下来分配1MB内存\n");
 	getchar();
 	addr = (char*) malloc(1*1024*1024);
-	printf("分配了8MB内存\n");
+	printf("分配了1MB内存\n");
 	getchar();
 	free(addr);
 	printf("接下来分配1GB内存\n");
