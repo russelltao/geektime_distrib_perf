@@ -66,7 +66,7 @@
 消耗时间（毫秒）：100
 ### c. 使用perf验证缓存命中率
 #### 使用array[i][j]遍历数组
-`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./traverse_2d_array -f`
+`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads java traverse_2d_array -f`
 * 输出结果：
 ```
  Performance counter stats for 'java traverse_2d_array -f':
@@ -84,7 +84,7 @@
        0.047877000 seconds sys
 ```
 #### 使用array[j][i]遍历数组
-`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./traverse_2d_array -s`
+`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads java traverse_2d_array -s`
 * 输出结果：
 ```
  Performance counter stats for 'java traverse_2d_array -s':

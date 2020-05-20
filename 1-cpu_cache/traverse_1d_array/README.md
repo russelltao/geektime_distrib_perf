@@ -40,7 +40,7 @@
        0.004098000 seconds sys
 ```
 #### 以步长为128遍历数组
-`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./traverse_1d_array -f`
+`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./traverse_1d_array -s 128`
 * 输出结果：
 ```
         34,246,770      cache-references                                              (83.16%)
@@ -57,7 +57,7 @@
 
 ```
 #### 以步长为1024遍历数组
-`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./traverse_1d_array -f`
+`perf stat -e cache-references,cache-misses,instructions,cycles,L1-dcache-load-misses,L1-dcache-loads ./traverse_1d_array -s 1024`
 * 输出结果：
 ```
        148,684,923      cache-references                                              (83.32%)
